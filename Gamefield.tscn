@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Background.png" type="Texture" id=1]
+[ext_resource path="res://snakeObject.tscn" type="PackedScene" id=2]
+
+[node name="Gamefield" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="snakeObject" parent="Sprite" instance=ExtResource( 2 )]
+position = Vector2( 577.107, 320.362 )
+
