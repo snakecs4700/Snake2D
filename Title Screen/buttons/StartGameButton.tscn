@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Title Screen/buttons/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Title Screen/buttons/StartGameButton.gd" type="Script" id=2]
+[ext_resource path="res://Title Screen/buttons/Label.gd" type="Script" id=3]
+
+[node name="StartGameButton" index="0" instance=ExtResource( 1 )]
+rect_min_size = Vector2( 360, 60 )
+script = ExtResource( 2 )
+
+[node name="Label" parent="." index="0"]
+rect_scale = Vector2( 0.678866, 1.37723 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "start game"
+script = ExtResource( 3 )
+

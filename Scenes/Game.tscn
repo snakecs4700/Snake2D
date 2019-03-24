@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Assets/asdasd.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Edible.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/snake.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Label.gd" type="Script" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 181.151
+
+[sub_resource type="DynamicFont" id=3]
+
+[node name="Game" type="Node2D"]
+position = Vector2( 0.511848, -1.192 )
+script = ExtResource( 1 )
+
+[node name="Map_Boundaries" type="StaticBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, -1.19209e-007 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Map_Boundaries"]
+polygon = PoolVector2Array( -7.7938, -3.50942, -8.96015, 20.9839, -91.1611, -46.8759, 1102.02, -62.7427, 1106.78, 665.54, -108.615, 663.954, -111.788, 3.8976, -5.48078, 21.351, -0.720771, 40.3911, -0.720771, 608.42, 7.21264, 600.487, 1022.68, 598.9, 1024.27, -2.4491 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( -0.850647, 4.75213 )
+scale = Vector2( 0.892951, 0.928398 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="cause why the fuck not" type="RigidBody2D" parent="."]
+editor/display_folded = true
+visible = false
+position = Vector2( 0, -1.19209e-007 )
+physics_material_override = SubResource( 1 )
+gravity_scale = 10.56
+can_sleep = false
+linear_velocity = Vector2( 1, 0 )
+angular_velocity = 1.0
+applied_force = Vector2( 1, 1 )
+
+[node name="its a muddafuckin ball" type="Sprite" parent="cause why the fuck not"]
+position = Vector2( 399.099, 178.6 )
+scale = Vector2( 1.50534, 1.45339 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cause why the fuck not"]
+position = Vector2( 399.029, 178.745 )
+scale = Vector2( 0.05374, 0.0598104 )
+shape = SubResource( 2 )
+
+[node name="snake" parent="." instance=ExtResource( 4 )]
+position = Vector2( 50.1531, 50.1531 )
+scale = Vector2( 0.999998, 1 )
+
+[node name="Score" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Score"]
+margin_right = 73.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 3 )
+script = ExtResource( 5 )
+
