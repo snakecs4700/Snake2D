@@ -33,6 +33,15 @@ func move_snake():
 		dir_change = true
 	var head_pos = get_node("head").position
 	get_node("head").position += direction * speed
+	
+	if(direction == Vector2(1, 0) && get_node("head").position[0] > 1024.0):
+		get_node("head").position[0] = -40.0
+	elif(direction == Vector2(-1, 0) && get_node("head").position[0] < -40.0):
+		get_node("head").position[0] = 1024.0
+	elif(direction == Vector2(0, 1) && get_node("head").position[1] > 600.0):
+		get_node("head").position[1] = -40.0
+	elif(direction == Vector2(0, -1) && get_node("head").position[1] < -40.0):
+		get_node("head").position[1] = 600.0
 	#print(direction)
 	
 	if(dir_change): #Change direction for all the tails.
