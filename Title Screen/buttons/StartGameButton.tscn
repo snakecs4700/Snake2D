@@ -4,7 +4,7 @@
 [ext_resource path="res://Title Screen/buttons/StartGameButton.gd" type="Script" id=2]
 [ext_resource path="res://Title Screen/buttons/Label.gd" type="Script" id=3]
 
-[node name="StartGameButton" index="0" instance=ExtResource( 1 )]
+[node name="StartGameButton" instance=ExtResource( 1 )]
 rect_min_size = Vector2( 360, 60 )
 script = ExtResource( 2 )
 

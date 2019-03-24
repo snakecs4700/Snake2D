@@ -6,7 +6,6 @@ var speed = 3 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
 const gap = -65 # NEVER MAKE THIS POSITIVE.
 var next_tail_dir = Vector2(0,-1)
 var prev_dir = Vector2(0,-1)
-
 # Load the tails on ready
 onready var tail = preload("res://Scenes/tail.tscn")
 
@@ -16,16 +15,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Directional input handling
-	if(Input.is_key_pressed(KEY_W)):
+	if(Input.is_key_pressed(KEY_UP)):
 		direction = Vector2(0,-1)
-	elif(Input.is_key_pressed(KEY_S)):
+	elif(Input.is_key_pressed(KEY_DOWN)):
 		direction = Vector2(0,1) 
-	elif(Input.is_key_pressed(KEY_A)):
+	elif(Input.is_key_pressed(KEY_LEFT)):
 		direction = Vector2(-1,0)
-	elif(Input.is_key_pressed(KEY_D)):
+	elif(Input.is_key_pressed(KEY_RIGHT)):
 		direction = Vector2(1,0)
 	move_snake()
-	pass
 
 # Handles the repositioning of the sprite during movement
 func move_snake():
@@ -40,7 +38,6 @@ func move_snake():
 	if(dir_change): #Change direction for all the tails.
 		for i in range(1,get_child_count()):
 			get_child(i).add_to_tail(head_pos, direction)
-	pass
 
 # Appends a tail at the rearmost part of the snake
 func add_tail():

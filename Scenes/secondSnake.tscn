@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/snake.gd" type="Script" id=1]
-[ext_resource path="res://Assets/head.PNG" type="Texture" id=2]
+[ext_resource path="res://Assets/head2.PNG" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.7113, 11.2784 )
@@ -19,6 +19,6 @@ scale = Vector2( 0.150803, 0.148462 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="head"]
-position = Vector2( 3.91804, -3.88405 )
+position = Vector2( -0.163078, 0.197067 )
 shape = SubResource( 1 )
 
