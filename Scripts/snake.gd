@@ -35,12 +35,12 @@ func move_snake():
 	get_node("head").position += direction * speed
 	
 	if(direction == Vector2(1, 0) && get_node("head").position[0] > 1024.0):
-		get_node("head").position[0] = -40.0
-	elif(direction == Vector2(-1, 0) && get_node("head").position[0] < -40.0):
+		get_node("head").position[0] = -45.0
+	elif(direction == Vector2(-1, 0) && get_node("head").position[0] < -45.0):
 		get_node("head").position[0] = 1024.0
 	elif(direction == Vector2(0, 1) && get_node("head").position[1] > 600.0):
-		get_node("head").position[1] = -40.0
-	elif(direction == Vector2(0, -1) && get_node("head").position[1] < -40.0):
+		get_node("head").position[1] = -45.0
+	elif(direction == Vector2(0, -1) && get_node("head").position[1] < -45.0):
 		get_node("head").position[1] = 600.0
 	#print(direction)
 	
