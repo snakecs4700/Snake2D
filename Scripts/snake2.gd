@@ -2,12 +2,13 @@ extends Node2D
 
 # Declare variables for snake control
 var direction = Vector2(0,-1)
-var speed = 3 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
-const gap = -65 # NEVER MAKE THIS POSITIVE.
+var speed = 5 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
+const gap = -50 # NEVER MAKE THIS POSITIVE.
 var next_tail_dir = Vector2(0,-1)
 var prev_dir = Vector2(0,-1)
+
 # Load the tails on ready
-onready var tail = preload("res://Scenes/tail.tscn")
+onready var tail = preload("res://Scenes/tail2.tscn")
 
 func _ready():
 	pass

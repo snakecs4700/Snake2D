@@ -1,18 +1,16 @@
 extends Node2D
 
 # Declare variables for snake control
-var direction = Vector2(1,0)
+var direction = Vector2(0,-1)
 var speed = 5 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
-const gap = -65 # NEVER MAKE THIS POSITIVE.
-var next_tail_dir = Vector2(1,0)
-var prev_dir = Vector2(1,0)
+const gap = -50 # NEVER MAKE THIS POSITIVE.
+var next_tail_dir = Vector2(0,-1)
+var prev_dir = Vector2(0,-1)
 
 # Load the tails on ready
 onready var tail = preload("res://Scenes/tail.tscn")
-var screensize 
 
 func _ready():
-	screensize = get_viewport_rect().size
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

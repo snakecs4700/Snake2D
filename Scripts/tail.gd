@@ -3,7 +3,12 @@ extends Area2D
 var directions =[] 
 var pos_array = []
 var cur_dir = Vector2() 
-var speed = 3 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
+onready var score_label1 = get_node("Score/Label")
+var speed = 5 # NEVER CHANGE THIS...ONLY ONE AND FIVE WORK
+signal is_dead2
+	
+func ready():
+	pass
 	
 func _process(delta):
 	if(directions.size() > 0):
@@ -24,4 +29,5 @@ func add_to_tail(head_pos, dir):
 func _on_tail_area_entered(area):
 	if(area.name == "head"):
 		print("You Dead!")
+		emit_signal("is_dead2")
 		get_tree().reload_current_scene()

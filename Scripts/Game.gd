@@ -1,6 +1,8 @@
 extends Node2D
 
+var score = 0
 onready var fruit = preload("res://Scenes/fruit.tscn")
+onready var score_label = get_node("Score/Label")
 
 func _ready():
 	add_fruit()
@@ -15,6 +17,8 @@ func add_fruit():
 func spawn_next_fruit_and_tail():
 	add_fruit()
 	get_node("snake").add_tail() #Reference the add_tail method in the node snake.
+	score += 1
+	score_label.set_text("Score: " + str(score))
 	
 func get_random_number(MAX,MIN):
 	randomize()
