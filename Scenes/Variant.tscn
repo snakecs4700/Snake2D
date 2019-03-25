@@ -1,27 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Variant.gd" type="Script" id=1]
 [ext_resource path="res://Assets/asdasd.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Edible.png" type="Texture" id=3]
-[ext_resource path="res://Tr2n.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Scenes/Label.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/snake2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/snake2.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/snake2b.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scripts/snake2b.gd" type="Script" id=9]
-[ext_resource path="res://Scenes/Label2.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Gumbel_-_04_-_Levels.ogg" type="AudioStream" id=11]
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 181.151
+[ext_resource path="res://Tr2n.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Label.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/snake2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/snake2.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/snake2b.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/snake2b.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Gumbel_-_04_-_Levels.ogg" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=3]
 size = 26
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [node name="Game" type="Node2D"]
 position = Vector2( 0.511848, -1.192 )
@@ -39,64 +30,43 @@ scale = Vector2( 0.892951, 0.928398 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="cause why the fuck not" type="RigidBody2D" parent="."]
-editor/display_folded = true
-visible = false
-position = Vector2( 0, -1.19209e-007 )
-physics_material_override = SubResource( 1 )
-gravity_scale = 10.56
-can_sleep = false
-linear_velocity = Vector2( 1, 0 )
-angular_velocity = 1.0
-applied_force = Vector2( 1, 1 )
+[node name="Player1" type="CanvasLayer" parent="."]
 
-[node name="its a muddafuckin ball" type="Sprite" parent="cause why the fuck not"]
-position = Vector2( 399.099, 178.6 )
-scale = Vector2( 1.50534, 1.45339 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cause why the fuck not"]
-position = Vector2( 399.029, 178.745 )
-scale = Vector2( 0.05374, 0.0598104 )
-shape = SubResource( 2 )
-
-[node name="Score" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="Score"]
+[node name="Label" type="Label" parent="Player1"]
 margin_right = 73.0
 margin_bottom = 21.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color_shadow = Color( 1, 0.890196, 0.890196, 1 )
-text = "P1 Score: 0"
-script = ExtResource( 5 )
+text = "P1: W,A,S,D"
+script = ExtResource( 4 )
 
-[node name="snake2" parent="." instance=ExtResource( 6 )]
+[node name="snake2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 557.548, 583.197 )
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.14
 autostart = true
 
-[node name="snake2b" parent="." instance=ExtResource( 8 )]
+[node name="snake2b" parent="." instance=ExtResource( 7 )]
 position = Vector2( 475.105, 585.468 )
 scale = Vector2( 0.999998, 1 )
-script = ExtResource( 9 )
-
-[node name="Score2" type="CanvasLayer" parent="."]
-
-[node name="Label2" type="Label" parent="Score2"]
-margin_left = 821.936
-margin_top = 5.16943
-margin_right = 1005.94
-margin_bottom = 32.1694
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_shadow = Color( 1, 0.890196, 0.890196, 1 )
-text = "P2 Score: 0"
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 9 )
 autoplay = true
+
+[node name="Player2" type="CanvasLayer" parent="."]
+
+[node name="Label2" type="Label" parent="Player2"]
+margin_left = 684.881
+margin_top = 6.15163
+margin_right = 1014.88
+margin_bottom = 33.1516
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 1, 0.890196, 0.890196, 1 )
+text = "P2: Up,Down,Left,Right"
+script = ExtResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
